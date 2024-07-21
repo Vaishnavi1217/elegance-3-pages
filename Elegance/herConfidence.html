@@ -22,12 +22,16 @@
                     <img src="Img2.jpg" alt="Inner Bloom" class="content-image" style="width: 700px;">
                     <div class="content-text">
                         <h2>Inner Bloom</h2>
-                        <p class="price"><span class="new-price">€210</span> <span class="old-price">€397</span></p>
+                        <p class="price"><span class="new-price">₹21000</span> <span class="old-price">₹39700</span></p>
                         <p>Hello Love!</p>
                         <p>I am super excited to bring Inner Bloom to you! This is the world's first Women’s Wealth & Wellbeing Academy with MRR.</p>
                     </div>
                 </div>
                 <!-- Additional cards can be added here -->
+            </div>
+            <div class="payment-section">
+                <h2>Buy Now</h2>
+                <button id="rzp-button1" class="buy-now">checkout</button>
             </div>
         </div>
     </div>
@@ -35,5 +39,32 @@
         <button>Try Stan Store 14 Days Free!</button>
         <a href="#">Privacy Policy</a>
     </div>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        var options = {
+            "key": "rzp_test_xRRb7W00uT22Xr", // Enter the Key ID generated from the Dashboard
+            "amount": "2100000", // Amount is in currency subunits (paisa). 2100000 paisa = ₹21000
+            "currency": "INR",
+            "name": "Empire Women Vision",
+            "description": "Purchase Inner Bloom",
+            "image": "https://example.com/your_logo.jpg",
+            "handler": function (response){
+                alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+            },
+            "prefill": {
+                "name": "John Doe",
+                "email": "john.doe@example.com",
+                "contact": "9999999999"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button1').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
 </body>
 </html>
