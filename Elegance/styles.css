@@ -215,3 +215,25 @@ body {
   .social-link:hover {
     color: #000;
   }
+
+  /* Existing styles here */
+
+.payment-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.payment-section button.buy-now {
+    background-color: #f58dac;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.payment-section button.buy-now:hover {
+    background-color: #e4477a;
+}
